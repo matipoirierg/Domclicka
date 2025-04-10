@@ -67,7 +67,7 @@ export function ProductsShowcase() {
         </motion.div>
 
         <div className="overflow-x-auto pb-8">
-          <div className="flex justify-center gap-8 md:flex-wrap">
+          <div className="flex gap-8 min-w-full md:min-w-0 md:justify-center md:flex-wrap">
             {products.map((product, index) => (
               <motion.div
                 key={product.name}
@@ -75,7 +75,7 @@ export function ProductsShowcase() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="w-80 flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-lg"
+                className="w-[80vw] md:w-80 flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-lg"
               >
                 <div className="relative h-48">
                   <Image
