@@ -49,13 +49,15 @@ const products = [
 
 export function ProductsShowcase() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section 
+      id="products"
+      className="py-20 bg-gray-50 scroll-margin-top"
+    >
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "100%" }}
           className="text-center mb-12 md:animate-[motion] animate-none"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -73,8 +75,7 @@ export function ProductsShowcase() {
                 key={product.name}
                 initial={{ opacity: 1, x: 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "100%" }}
                 className="w-[80vw] md:w-80 flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-lg md:[&>*]:animate-[motion]"
               >
                 <div className="relative h-48">
@@ -118,10 +119,9 @@ export function ProductsShowcase() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "100%" }}
           className="text-center mt-8 md:animate-[motion] animate-none"
         >
           <Button
