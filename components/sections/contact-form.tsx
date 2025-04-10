@@ -4,10 +4,20 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select } from '@/components/ui/select'
+import { 
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
 import { Checkbox } from '@/components/ui/checkbox'
+import { useState } from 'react'
 
 export function ContactForm() {
+  const [propertyType, setPropertyType] = useState("")
+  
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -55,13 +65,19 @@ export function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="property">Tipo de propiedad</Label>
-              <Select id="property" required>
-                <option value="">Selecciona una opción</option>
-                <option value="house">Casa</option>
-                <option value="apartment">Departamento</option>
-                <option value="office">Oficina</option>
-                <option value="commercial">Local comercial</option>
+              <Label htmlFor="property-type">Tipo de propiedad</Label>
+              <Select value={propertyType} onValueChange={setPropertyType} required>
+                <SelectTrigger id="property-type" className="w-full">
+                  <SelectValue placeholder="Selecciona una opción" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="house">Casa</SelectItem>
+                    <SelectItem value="apartment">Departamento</SelectItem>
+                    <SelectItem value="office">Oficina</SelectItem>
+                    <SelectItem value="commercial">Local comercial</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
               </Select>
             </div>
 
