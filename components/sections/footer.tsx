@@ -134,7 +134,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2024 Domclicka. Todos los derechos reservados.
+              © 2025 Domclicka. Todos los derechos reservados.
             </p>
             <div className="flex gap-6">
               <Link
