@@ -70,7 +70,7 @@ export function ProductsShowcase() {
 
         <div className="overflow-x-auto pb-8">
           <div className="flex gap-8 min-w-full md:min-w-0 md:justify-center md:flex-wrap">
-            {products.map((product, index) => (
+            {products.map((product) => (
               <motion.div
                 key={product.name}
                 initial={{ opacity: 1, x: 0 }}
