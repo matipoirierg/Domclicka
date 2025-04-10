@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
 export function HeroSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">

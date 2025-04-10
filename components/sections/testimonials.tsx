@@ -86,7 +86,7 @@ export function Testimonials() {
               </div>
 
               <p className="text-gray-600">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
             </motion.div>
           ))}
