@@ -6,24 +6,24 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'María González',
-    role: 'Propietaria de vivienda',
-    image: '/testimonials/maria.jpg',
-    content: 'La instalación fue impecable y el sistema funciona perfectamente. Ahora puedo controlar mi hogar desde cualquier lugar.',
+    name: 'Natalia Bascope',
+    role: 'Cliente',
+    image: '/img/natalia.jpg',
+    content: 'El equipo de DOMCLICKA es de gran responsabilidad en el desempeño de su trabajo. muy atentos y siempre prestos a colaborar con sus clientes. Amables y muy profesionales. Recomendados 100%.',
     rating: 5
   },
   {
-    name: 'Carlos Rodríguez',
-    role: 'Empresario',
-    image: '/testimonials/carlos.jpg',
-    content: 'Excelente servicio y atención al cliente. La domótica ha mejorado significativamente la eficiencia de mi oficina.',
+    name: 'Luis Armando Fonseca',
+    role: 'Cliente',
+    image: '/img/luis.jpg',
+    content: 'Lo que me gusta de DOMCLICKA es la asesoría personalizada, calidad en el trabajo, la organización y las respuestas rápidas y oportunas a cada requerimiento que necesitamos. Talento humano y de trabajo óptimo para lograr objetivos trazados.',
     rating: 5
   },
   {
-    name: 'Ana Martínez',
-    role: 'Arquitecta',
-    image: '/testimonials/ana.jpg',
-    content: 'La integración con los sistemas existentes fue perfecta. Muy profesionales y atentos a cada detalle.',
+    name: 'Danilo Molina Camara',
+    role: 'Cliente',
+    image: '/img/danilo.jpg',
+    content: 'En DOMCLICKA siempre buscan la satisfacción de sus clientes, desde el punto de vista técnico se mantienen actualizados en las nuevas tendencias, entienden cómo aplicarlas y obtienen beneficios para ellos y para sus clientes.',
     rating: 5
   }
 ]
