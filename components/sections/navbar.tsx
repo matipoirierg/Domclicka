@@ -3,35 +3,115 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, MessageCircle, XCircle, Camera } from 'lucide-react'
+import { Menu, X, MessageCircle, XCircle, Camera, ChevronDown, Lock, Video, Lightbulb, Key, Plug, Package, Home, Settings, Radio, ToggleLeft, Image as ImageIcon, BookOpen } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import { QRPopup } from '@/components/sections/qr-popup'
+
+const services = [
+  {
+    category: 'Productos',
+    items: [
+      {
+        subcategory: 'Cerraduras Inteligentes',
+        items: [
+          { name: 'Clasica', href: '#cerraduras-clasica' },
+          { name: 'Clasica Pro', href: '#cerraduras-clasica-pro' },
+          { name: 'Blindex Corrediza', href: '#cerraduras-lindex-corrediza' },
+          { name: 'Blindex', href: '#cerraduras-blindex' },
+          { name: 'Super Light', href: '#cerraduras-superlight' },
+          { name: 'Ejecutiva', href: '#cerraduras-ejecutiva' },
+          { name: 'Ejecutiva Pro', href: '#cerraduras-ejecutiva-pro' },
+          { name: 'Super Heavy', href: '#cerraduras-super-heavy' },
+          { name: 'Super Heavy Lux', href: '#cerraduras-super-heavy-lux' },
+        ]
+      },
+      {
+        subcategory: 'Cámaras',
+        items: [
+          { name: 'Cámara Interna', href: '#camara-interna' },
+          { name: 'Cámara Externa', href: '#camara-externa' },
+        ]
+      },
+      {
+        subcategory: 'Interruptores Inteligentes',
+        items: [
+          { name: 'Smart 1C', href: '#interruptor-1c' },
+          { name: 'Smart 2C', href: '#interruptor-2c' },
+          { name: 'Smart 3C', href: '#interruptor-3c' },
+        ]
+      },
+      {
+        subcategory: 'Sensores',
+        items: [
+          { name: 'Sensor de Puerta', href: '#sensor-puerta' }
+        ]
+      },
+      {
+        subcategory: 'Tarjetas de Acceso',
+        items: [
+          { name: 'RFID', href: '#tarjetas-rfid' }
+        ]
+      },
+      {
+        subcategory: 'Toma corrientes',
+        items: [
+          { name: 'Toma Corrientes Smart', href: '#tomacorrientes-smart' }
+        ]
+      },
+      {
+        subcategory: 'Iluminación',
+        items: [
+          { name: 'Luces Neon', href: '#luces-neon' }
+        ]
+      }
+    ]
+  },
+  {
+    category: 'Servicios',
+    items: [
+      {
+        subcategory: 'Paquetes',
+        items: [
+          { name: 'Simple Pack', href: '#simple-pack' },
+          { name: 'Full Service', href: '#full-service' },
+          { name: 'Proyectos IoT', href: '#proyectos-iot' }
+        ]
+      }
+    ]
+  }
+]
 
 const navigation = [
   { name: 'Inicio', href: '#' },
-  { name: 'Productos y Servicios', href: '#productos' },
-  { name: 'Galeria', href: '#galeria' },
-  { name: 'Testimonios', href: '#testimonios' },
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Media', href: '#Media' },
   { name: 'Nosotros', href: '#nosotros' },
   { name: 'Contacto', href: '#contacto' },
 ]
 
-export function Navbar() {
+interface NavbarProps {
+  onOpenQR: () => void
+}
+
+export function Navbar({ onOpenQR }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isQRPopupOpen, setIsQRPopupOpen] = useState(false)
 
   const handleOpenWhatsApp = () => {
     window.open('https://wa.me/your-number', '_blank')
   }
 
   const handleOpenQR = () => {
-    setIsQRPopupOpen(true)
+    onOpenQR()
   }
 
   return (
@@ -52,27 +132,131 @@ export function Navbar() {
 
             <div className="flex items-center gap-8">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-600 font-medium relative"
-                  style={{
-                    textDecoration: 'none',
-                    paddingBottom: '0.25rem',
-                    borderBottom: '2px solid transparent',
-                    transition: 'color 0.3s ease, border-color 0.3s ease'
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderBottom = '2px solid #6b7280';
-                    e.currentTarget.style.color = '#6b7280';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderBottom = '2px solid transparent';
-                    e.currentTarget.style.color = '#4b5563';
-                  }}
-                >
-                  {item.name}
-                </Link>
+                item.name === 'Servicios' ? (
+                  <DropdownMenu key={item.name}>
+                    <DropdownMenuTrigger className="text-gray-600 font-medium flex items-center gap-1 hover:text-gray-800 transition-colors">
+                      {item.name}
+                      <ChevronDown className="w-4 h-4" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[800px] p-4 bg-white border border-gray-100 shadow-lg">
+                      <div className="grid grid-cols-2 gap-8 divide-x divide-gray-200">
+                        {services.map((section) => (
+                          <div key={section.category} className={section.category === 'Productos' ? 'pr-8' : 'pl-8'}>
+                            <div className="flex items-center justify-between mb-3">
+                              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                                {section.category === 'Productos' ? (
+                                  <Package className="w-5 h-5 text-[#25D366]" />
+                                ) : (
+                                  <Settings className="w-5 h-5 text-[#25D366]" />
+                                )}
+                                {section.category}
+                              </h3>
+                              <Link 
+                                href={section.category === 'Productos' ? '#catalogo-productos' : '#catalogo-servicios'}
+                                className="text-sm text-[#25D366] hover:text-[#128C7E] font-medium flex items-center gap-1 hover:underline"
+                              >
+                                Ver catálogo completo
+                                <ChevronDown className="w-3 h-3 rotate-[-90deg] mt-0.5" />
+                              </Link>
+                            </div>
+                            {section.category === 'Productos' ? (
+                              <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                                {section.items.map((subcategory) => (
+                                  <div key={subcategory.subcategory} className="space-y-1">
+                                    <h4 className="font-medium text-sm text-gray-800 flex items-center gap-2 pb-1 border-b border-gray-100 bg-gray-50/50 px-2 py-1 rounded-md">
+                                      {subcategory.subcategory === 'Cerraduras Inteligentes' && <Lock className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Cámaras' && <Video className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Interruptores Inteligentes' && <ToggleLeft className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Sensores' && <Radio className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Tarjetas de Acceso' && <Key className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Toma corrientes' && <Plug className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory === 'Iluminación' && <Lightbulb className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory}
+                                    </h4>
+                                    <div className="pl-6 space-y-0.5">
+                                      {subcategory.items.map((item) => (
+                                        <DropdownMenuItem key={item.name} asChild className="py-0.5 hover:bg-gray-50">
+                                          <Link href={item.href} className="text-sm text-gray-600 hover:text-gray-900">
+                                            {item.name}
+                                          </Link>
+                                        </DropdownMenuItem>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="space-y-3">
+                                {section.items.map((subcategory) => (
+                                  <div key={subcategory.subcategory}>
+                                    <h4 className="font-medium text-sm text-gray-800 flex items-center gap-2 pb-1 border-b border-gray-100 bg-gray-50/50 px-2 py-1 rounded-md">
+                                      {subcategory.subcategory === 'Paquetes' && <Home className="w-4 h-4 text-[#25D366]" />}
+                                      {subcategory.subcategory}
+                                    </h4>
+                                    <div className="pl-6 mt-1 space-y-0.5">
+                                      {subcategory.items.map((item) => (
+                                        <DropdownMenuItem key={item.name} asChild className="py-0.5 hover:bg-gray-50">
+                                          <Link href={item.href} className="text-sm text-gray-600 hover:text-gray-900">
+                                            {item.name}
+                                          </Link>
+                                        </DropdownMenuItem>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : item.name === 'Media' ? (
+                  <DropdownMenu key={item.name}>
+                    <DropdownMenuTrigger className="text-gray-600 font-medium flex items-center gap-1 hover:text-gray-800 transition-colors">
+                      {item.name}
+                      <ChevronDown className="w-4 h-4" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-64 p-4 bg-white border border-gray-100 shadow-lg">
+                      <div className="space-y-1">
+                        <DropdownMenuItem asChild className="rounded-md hover:bg-gray-50/80">
+                          <Link href="#galeria" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
+                            <ImageIcon className="w-4 h-4 text-[#25D366]" />
+                            <span className="font-medium">Galería</span>
+                          </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild className="rounded-md hover:bg-gray-50/80">
+                          <Link href="#blog" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
+                            <BookOpen className="w-4 h-4 text-[#25D366]" />
+                            <span className="font-medium">Blog</span>
+                          </Link>
+                        </DropdownMenuItem>
+                      </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-600 font-medium relative"
+                    style={{
+                      textDecoration: 'none',
+                      paddingBottom: '0.25rem',
+                      borderBottom: '2px solid transparent',
+                      transition: 'color 0.3s ease, border-color 0.3s ease'
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.borderBottom = '2px solid #6b7280';
+                      e.currentTarget.style.color = '#6b7280';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.borderBottom = '2px solid transparent';
+                      e.currentTarget.style.color = '#4b5563';
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -197,50 +381,6 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* QR Popup */}
-      <AnimatePresence>
-        {isQRPopupOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
-            onClick={() => setIsQRPopupOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-xl p-6 max-w-sm w-full relative mx-auto my-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setIsQRPopupOpen(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                <XCircle className="w-6 h-6" />
-              </button>
-              
-              <div className="text-center">
-                <h3 className="text-xl font-semibold mb-4">Escanea el código QR</h3>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <Image
-                    src="/img/qr-code.png"
-                    alt="QR Code"
-                    width={200}
-                    height={200}
-                    className="mx-auto"
-                  />
-                </div>
-                <p className="mt-4 text-sm text-gray-600">
-                  Escanea este código con tu cámara para contactarnos por WhatsApp
-                </p>
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/sections/navbar";
+import { LayoutContent } from "./layout-content";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -28,10 +28,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`scroll-smooth ${raleway.variable}`}>
       <body className={raleway.className}>
-        <Navbar />
-        <main className="pt-20">
-          {children}
-        </main>
+        <LayoutContent>{children}</LayoutContent>
       </body>
     </html>
   );

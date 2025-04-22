@@ -20,19 +20,6 @@ const products = [
     ]
   },
   {
-    name: 'Asesoría',
-    description: 'Instalación y Capacitación del uso de los dispositivos',
-    image: '/img/asesoria.jpeg',
-    tags: ['Instalación profesional', 'Capacitación'],
-    features: [
-      { name: 'Dispositivos domóticos', included: true },
-      { name: 'Asesoría de instalación', included: true },
-      { name: 'Instalación profesional', included: true },
-      { name: 'Capacitación', included: true },
-      { name: 'Análisis del hogar', included: false },
-    ]
-  },
-  {
     name: 'Full Service',
     description: 'Análisis, Instalación y Capacitación del uso de los dispositivos',
     image: '/img/install.jpeg',
@@ -43,6 +30,19 @@ const products = [
       { name: 'Instalación profesional', included: true },
       { name: 'Capacitación', included: true },
       { name: 'Análisis del hogar', included: true },
+    ]
+  },
+  {
+    name: 'Asesoría',
+    description: 'Instalación y Capacitación del uso de los dispositivos',
+    image: '/img/asesoria.jpeg',
+    tags: ['Instalación profesional', 'Capacitación'],
+    features: [
+      { name: 'Dispositivos domóticos', included: true },
+      { name: 'Asesoría de instalación', included: true },
+      { name: 'Instalación profesional', included: true },
+      { name: 'Capacitación', included: true },
+      { name: 'Análisis del hogar', included: false },
     ]
   }
 ]
