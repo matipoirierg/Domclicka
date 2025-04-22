@@ -83,6 +83,7 @@ export function ProductsShowcase() {
                     src={product.image}
                     alt={product.name}
                     fill
+                    sizes="(max-width: 768px) 80vw, 320px"
                     className="object-cover"
                   />
                 </div>

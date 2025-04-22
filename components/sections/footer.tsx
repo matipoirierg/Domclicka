@@ -73,6 +73,7 @@ export function Footer() {
                 alt="Domclicka"
                 width={150}
                 height={40}
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <div className="space-y-4">
