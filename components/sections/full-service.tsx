@@ -95,7 +95,7 @@ export function FullService() {
             className="relative h-[500px] rounded-lg overflow-hidden"
           >
             <Image
-              src="/service-illustration.jpg"
+              src="/img/domotica1.jpg"
               alt="Servicio integral de domótica"
               fill
               className="object-cover"

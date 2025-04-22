@@ -8,41 +8,43 @@ import { Check, X } from 'lucide-react'
 const products = [
   {
     name: 'SimplePack',
-    description: 'Venta de Dispositivos domóticos varios',
+    description: 'Consiste en la comercialización y entrega del dispositivo inteligente IoT al cliente.',
     image: '/img/product.jpeg',
     tags: ['Dispositivos inteligentes', 'Entrega rápida'],
     features: [
-      { name: 'Dispositivos domóticos', included: true },
-      { name: 'Asesoría de instalación', included: false },
-      { name: 'Instalación profesional', included: false },
-      { name: 'Capacitación', included: false },
-      { name: 'Análisis del hogar', included: false },
+      { name: 'Asistencia Virtual', included: true },
+      { name: 'Entrega de producto', included: true },
+      { name: 'Garantía 12 Meses (Limitada)', included: true }
     ]
   },
   {
     name: 'Full Service',
-    description: 'Análisis, Instalación y Capacitación del uso de los dispositivos',
+    description: 'Asesoramos al cliente respecto a las mejores opciones de dispositivos, nos encargamos de entregar el equipo, instalarlo y capacitar al personal, además de otorgar otros beneficios adicionales.',
     image: '/img/install.jpeg',
     tags: ['Análisis personalizado', 'Servicio completo'],
     features: [
-      { name: 'Dispositivos domóticos', included: true },
-      { name: 'Asesoría de instalación', included: true },
+      { name: 'Asistencia Virtual', included: true },
+      { name: 'Entrega de producto', included: true },
+      { name: 'Baterías DURACELL', included: true },
       { name: 'Instalación profesional', included: true },
-      { name: 'Capacitación', included: true },
-      { name: 'Análisis del hogar', included: true },
+      { name: 'Capacitación de uso', included: true },
+      { name: 'Garantía 12 Meses (100%)', included: true },
+      { name: 'Servicio Técnico 12 Meses (100%)', included: true },
     ]
   },
   {
-    name: 'Asesoría',
-    description: 'Instalación y Capacitación del uso de los dispositivos',
+    name: 'Proyectos IoT - M2M',
+    description: 'Analizamos el área a transformar en inteligente y elaboramos propuesta según requiera y cumpla con las expectativas del cliente.',
     image: '/img/asesoria.jpeg',
     tags: ['Instalación profesional', 'Capacitación'],
     features: [
-      { name: 'Dispositivos domóticos', included: true },
-      { name: 'Asesoría de instalación', included: true },
-      { name: 'Instalación profesional', included: true },
-      { name: 'Capacitación', included: true },
-      { name: 'Análisis del hogar', included: false },
+      { name: 'Análisis de Proyecto', included: true },
+      { name: 'Asesoría Técnica', included: true },
+      { name: 'Materiales', included: true },
+      { name: 'Instalaciones', included: true },
+      { name: 'Capacitación de Uso', included: true },
+      { name: 'Soporte Técnico 12 Meses', included: true },
+      { name: 'Garantía 12 Meses', included: true },
     ]
   }
 ]

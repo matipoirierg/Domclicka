@@ -79,11 +79,11 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-blue-400" />
-                <span>+34 123 456 789</span>
+                <span>72007428</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span>info@domclicka.es</span>
+                <span>info@domclicka.com</span>
               </div>
             </div>
             <div className="flex gap-4 mt-6">

@@ -79,7 +79,7 @@ export function SupportSection() {
             className="relative h-[500px] rounded-lg overflow-hidden"
           >
             <Image
-              src="/support-illustration.jpg"
+              src="/img/support.jpg"
               alt="Soporte técnico de domótica"
               fill
               className="object-cover"
