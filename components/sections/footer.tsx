@@ -32,25 +32,21 @@ const footerLinks = [
   {
     title: 'Productos',
     links: [
-      { label: 'SimplePack', href: '#' },
-      { label: 'Catálogo completo', href: '#' },
-      { label: 'Novedades', href: '#' }
+      { label: 'Catálogo de productos', href: '#' }
     ]
   },
   {
     title: 'Servicios',
     links: [
-      { label: 'Análisis gratuito', href: '#' },
-      { label: 'Instalación', href: '#' },
-      { label: 'Soporte técnico', href: '#' }
+      { label: 'Catálogo de servicios', href: '#' }
     ]
   },
   {
     title: 'Empresa',
     links: [
       { label: 'Sobre nosotros', href: '#' },
-      { label: 'Blog', href: '#' },
-      { label: 'Trabaja con nosotros', href: '#' }
+      { label: 'Galería', href: '#' },
+      { label: 'Blog', href: '#' }
     ]
   }
 ]
