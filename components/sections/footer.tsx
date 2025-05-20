@@ -44,9 +44,9 @@ const footerLinks = [
   {
     title: 'Empresa',
     links: [
-      { label: 'Sobre nosotros', href: '#' },
-      { label: 'Galería', href: '#' },
-      { label: 'Blog', href: '#' }
+      { label: 'Sobre nosotros', href: '/nosotros' },
+      { label: 'Galería', href: '/galeria' },
+      { label: 'Blog', hrFef: '/blog' }
     ]
   }
 ]
@@ -109,7 +109,7 @@ export function Footer() {
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      href={link.href}
+                      href={link.href || ''}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       {link.label}

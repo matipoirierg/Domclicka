@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, MessageCircle, Camera, ChevronDown, Lock, Video, Lightbulb, Key, Plug, Package, Home, Settings, Radio, ToggleLeft, Image as ImageIcon, BookOpen } from 'lucide-react'
+import { Menu, X, MessageCircle, Camera, ChevronDown, Lock, Video, Lightbulb, Key, Plug, Package, Home, Settings, Radio, ToggleLeft, Image as ImageIcon, BookOpen, Shield } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   DropdownMenu,
@@ -20,54 +20,54 @@ const services = [
       {
         subcategory: 'Cerraduras Inteligentes',
         items: [
-          { name: 'Clasica', href: '#cerraduras-clasica' },
-          { name: 'Clasica Pro', href: '#cerraduras-clasica-pro' },
-          { name: 'Blindex Corrediza', href: '#cerraduras-lindex-corrediza' },
-          { name: 'Blindex', href: '#cerraduras-blindex' },
-          { name: 'Super Light', href: '#cerraduras-superlight' },
-          { name: 'Ejecutiva', href: '#cerraduras-ejecutiva' },
-          { name: 'Ejecutiva Pro', href: '#cerraduras-ejecutiva-pro' },
-          { name: 'Super Heavy', href: '#cerraduras-super-heavy' },
-          { name: 'Super Heavy Lux', href: '#cerraduras-super-heavy-lux' },
+          { name: 'Clasica', href: '/catalogo-productos/cerraduras-clasica' },
+          { name: 'Clasica Pro', href: '/catalogo-productos/cerraduras-clasica-pro' },
+          { name: 'Blindex Corrediza', href: '/catalogo-productos/cerraduras-blindex-corrediza' },
+          { name: 'Blindex', href: '/catalogo-productos/cerraduras-blindex' },
+          { name: 'Super Light', href: '/catalogo-productos/cerraduras-superlight' },
+          { name: 'Ejecutiva', href: '/catalogo-productos/cerraduras-ejecutiva' },
+          { name: 'Ejecutiva Pro', href: '/catalogo-productos/cerraduras-ejecutiva-pro' },
+          { name: 'Super Heavy', href: '/catalogo-productos/cerraduras-super-heavy' },
+          { name: 'Super Heavy Lux', href: '/catalogo-productos/cerraduras-super-heavy-lux' },
         ]
       },
       {
         subcategory: 'Cámaras',
         items: [
-          { name: 'Cámara Interna', href: '#camara-interna' },
-          { name: 'Cámara Externa', href: '#camara-externa' },
+          { name: 'Cámara Interna', href: '/catalogo-productos/camara-interna' },
+          { name: 'Cámara Externa', href: '/catalogo-productos/camara-externa' },
         ]
       },
       {
         subcategory: 'Interruptores Inteligentes',
         items: [
-          { name: 'Smart 1C', href: '#interruptor-1c' },
-          { name: 'Smart 2C', href: '#interruptor-2c' },
-          { name: 'Smart 3C', href: '#interruptor-3c' },
+          { name: 'Smart 1C', href: '/catalogo-productos/interruptor-1c' },
+          { name: 'Smart 2C', href: '/catalogo-productos/interruptor-2c' },
+          { name: 'Smart 3C', href: '/catalogo-productos/interruptor-3c' },
         ]
       },
       {
         subcategory: 'Sensores',
         items: [
-          { name: 'Sensor de Puerta', href: '#sensor-puerta' }
+          { name: 'Sensor de Puerta', href: '/catalogo-productos/sensor-puerta' }
         ]
       },
       {
         subcategory: 'Tarjetas de Acceso',
         items: [
-          { name: 'RFID', href: '#tarjetas-rfid' }
+          { name: 'RFID', href: '/catalogo-productos/tarjetas-rfid' }
         ]
       },
       {
         subcategory: 'Toma corrientes',
         items: [
-          { name: 'Toma Corrientes Smart', href: '#tomacorrientes-smart' }
+          { name: 'Toma Corrientes Smart', href: '/catalogo-productos/tomacorrientes-smart' }
         ]
       },
       {
         subcategory: 'Iluminación',
         items: [
-          { name: 'Luces Neon', href: '#luces-neon' }
+          { name: 'Luces Neon', href: '/catalogo-productos/luces-neon' }
         ]
       }
     ]
@@ -78,9 +78,9 @@ const services = [
       {
         subcategory: 'Paquetes',
         items: [
-          { name: 'Simple Pack', href: '#simple-pack' },
-          { name: 'Full Service', href: '#full-service' },
-          { name: 'Proyectos IoT', href: '#proyectos-iot' }
+          { name: 'Simple Pack', href: '/catalogo-servicios/simple-pack' },
+          { name: 'Full Service', href: '/catalogo-servicios/full-service' },
+          { name: 'Proyectos IoT', href: '/catalogo-servicios/proyectos-iot' }
         ]
       }
     ]
@@ -88,10 +88,10 @@ const services = [
 ]
 
 const navigation = [
-  { name: 'Inicio', href: '#' },
+  { name: 'Inicio', href: '/' },
   { name: 'Servicios', href: '#servicios' },
   { name: 'Media', href: '#Media' },
-  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Nosotros', href: '/nosotros' },
   { name: 'Contacto', href: '#contacto' },
 ]
 
@@ -101,6 +101,7 @@ interface NavbarProps {
 
 export function Navbar({ onOpenQR }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
 
   const handleOpenWhatsApp = () => {
     window.open('https://wa.me/your-number', '_blank')
@@ -129,7 +130,7 @@ export function Navbar({ onOpenQR }: NavbarProps) {
             <div className="flex items-center gap-8">
               {navigation.map((item) => (
                 item.name === 'Servicios' ? (
-                  <DropdownMenu key={item.name}>
+                  <DropdownMenu key={item.name} open={isServicesOpen} onOpenChange={setIsServicesOpen}>
                     <DropdownMenuTrigger className="text-gray-600 font-medium flex items-center gap-1 hover:text-gray-800 transition-colors">
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
@@ -148,8 +149,9 @@ export function Navbar({ onOpenQR }: NavbarProps) {
                                 {section.category}
                               </h3>
                               <Link 
-                                href={section.category === 'Productos' ? '#catalogo-productos' : '#catalogo-servicios'}
+                                href={section.category === 'Productos' ? '/catalogo-productos' : '/catalogo-servicios'}
                                 className="text-sm text-[#25D366] hover:text-[#128C7E] font-medium flex items-center gap-1 hover:underline"
+                                onClick={() => setIsServicesOpen(false)}
                               >
                                 Ver catálogo completo
                                 <ChevronDown className="w-3 h-3 rotate-[-90deg] mt-0.5" />
@@ -216,13 +218,13 @@ export function Navbar({ onOpenQR }: NavbarProps) {
                     <DropdownMenuContent className="w-64 p-4 bg-white border border-gray-100 shadow-lg">
                       <div className="space-y-1">
                         <DropdownMenuItem asChild className="rounded-md hover:bg-gray-50/80">
-                          <Link href="#galeria" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
+                          <Link href="/galeria" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
                             <ImageIcon className="w-4 h-4 text-[#25D366]" />
                             <span className="font-medium">Galería</span>
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild className="rounded-md hover:bg-gray-50/80">
-                          <Link href="#blog" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
+                          <Link href="/blog" className="flex items-center gap-2 py-2 px-2 w-full text-sm text-gray-600 hover:text-gray-900">
                             <BookOpen className="w-4 h-4 text-[#25D366]" />
                             <span className="font-medium">Blog</span>
                           </Link>
@@ -382,4 +384,4 @@ export function Navbar({ onOpenQR }: NavbarProps) {
       </AnimatePresence>
     </nav>
   )
-} 
+}
