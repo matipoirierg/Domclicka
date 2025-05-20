@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, MessageCircle, Camera, ChevronDown, Lock, Video, Lightbulb, Key, Plug, Package, Home, Settings, Radio, ToggleLeft, Image as ImageIcon, BookOpen, Shield } from 'lucide-react'
+import { Menu, X, MessageCircle, Camera, ChevronDown, Lock, Video, Lightbulb, Key, Plug, Package, Home, Settings, Radio, ToggleLeft, Image as ImageIcon, BookOpen } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   DropdownMenu,

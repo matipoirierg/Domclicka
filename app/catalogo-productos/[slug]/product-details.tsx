@@ -45,7 +45,8 @@ const reviews = [
 
 export default function ProductDetails({ product, category }: ProductDetailsProps) {
   const handleWhatsAppContact = () => {
-    const message = `Hola, me interesa el producto ${product.name} de DomClicka.`
+    // Uncomment if you need to use the message in the URL
+    // const message = `Hola, me interesa el producto ${product.name} de DomClicka.`
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=59172007428&text&type=phone_number&app_absent=0`
     window.open(whatsappUrl, '_blank')
   }

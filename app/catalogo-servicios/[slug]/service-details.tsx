@@ -5,7 +5,16 @@ import { Star, MessageCircle, Home, Settings, Package } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Service } from '../page'
+import { services } from '../page'
+
+interface Service {
+  name: string
+  href: string
+  description: string
+  features: string[]
+  image: string
+  icon: React.ReactNode
+}
 
 interface ServiceDetailsProps {
   service: Service
@@ -31,7 +40,8 @@ const reviews = [
 
 export default function ServiceDetails({ service }: ServiceDetailsProps) {
   const handleWhatsAppContact = () => {
-    const message = `Hola, me interesa el servicio ${service.name} de DomClicka.`
+    // Uncomment if you need to use the message in the URL
+    // const message = `Hola, me interesa el servicio ${service.name} de DomClicka.`
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=59172007428&text&type=phone_number&app_absent=0`
     window.open(whatsappUrl, '_blank')
   }
@@ -49,7 +59,7 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">Características principales</h2>
             <ul className="space-y-3">
-              {service.features.map((feature, index) => (
+              {service.features.map((feature: string, index: number) => (
                 <li key={index} className="flex items-start gap-2">
                   <svg
                     className="w-5 h-5 text-[#25D366] mt-0.5"

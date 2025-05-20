@@ -135,10 +135,10 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold mb-2">Ing. Jaime Cari Siles</h3>
                 <p className="text-muted-foreground mb-4">
                   Domclicka nació de la visión de nuestro fundador, quien inició este
-                  proyecto con la venta de dispositivos IoT bajo la marca "Simplepack".
+                  proyecto con la venta de dispositivos IoT bajo la marca &ldquo;Simplepack&rdquo;.
                   Con el tiempo, hemos evolucionado significativamente, expandiendo
                   nuestras operaciones y desarrollando nuestro servicio estrella:
-                  "Full Service".
+                  &ldquo;Full Service&rdquo;.
                 </p>
                 <p className="text-muted-foreground">
                   Este servicio integral incluye análisis detallado de proyectos,

@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { AlertCircle } from "lucide-react"
 
 export default function Error({
+  // The error parameter is required by Next.js but we're not using it directly
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   error,
   reset,
 }: {
