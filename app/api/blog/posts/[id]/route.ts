@@ -21,7 +21,7 @@ async function readBlogPosts() {
     await ensureDataDirectory()
     const fileContent = await fs.readFile(dataFilePath, 'utf-8')
     return JSON.parse(fileContent)
-  } catch (error) {
+  } catch {
     // If file doesn't exist or is invalid, return empty array
     return []
   }

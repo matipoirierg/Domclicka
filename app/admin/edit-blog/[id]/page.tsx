@@ -16,7 +16,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from 'sonner'
 import { Loader2, Upload, Code, Quote, ArrowLeft } from 'lucide-react'
 import { Toggle } from '@/components/ui/toggle'
-import { cn } from '@/lib/utils'
 import '@/app/styles/editor.css'
 
 interface BlogPost {
@@ -37,7 +36,11 @@ interface EditFormData {
   currentCoverImage: string
 }
 
-const MenuBar = ({ editor }: { editor: any }) => {
+interface MenuBarProps {
+  editor: ReturnType<typeof useEditor>
+}
+
+const MenuBar = ({ editor }: MenuBarProps) => {
   if (!editor) return null
 
   return (
@@ -216,9 +219,10 @@ export default function EditBlogPage({ params }: { params: { id: string } }) {
 
       toast.success('Artículo actualizado correctamente')
       router.push('/admin')
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error:', error)
-      toast.error(error.message || 'Ocurrió un error al actualizar el artículo')
+      const errorMessage = error instanceof Error ? error.message : 'Ocurrió un error al actualizar el artículo'
+      toast.error(errorMessage)
     } finally {
       setSaving(false)
     }
@@ -251,7 +255,7 @@ export default function EditBlogPage({ params }: { params: { id: string } }) {
         
         <Card>
           <CardHeader>
-            <CardTitle>Editar "{post?.title}"</CardTitle>
+            <CardTitle>Editar &ldquo;{post?.title}&rdquo;</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import slugify from 'slugify'
@@ -12,7 +12,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from 'sonner'
 import { Loader2, Upload, Code, Quote } from 'lucide-react'
 import { Toggle } from '@/components/ui/toggle'
-import { cn } from '@/lib/utils'
 import '@/app/styles/editor.css'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
@@ -29,7 +28,11 @@ const initialFormData: BlogFormData = {
   coverImage: null,
 }
 
-const MenuBar = ({ editor }: { editor: any }) => {
+interface MenuBarProps {
+  editor: ReturnType<typeof useEditor>
+}
+
+const MenuBar = ({ editor }: MenuBarProps) => {
   if (!editor) return null
 
   return (
@@ -162,9 +165,10 @@ export default function BlogManager() {
       if (formRef.current) {
         formRef.current.reset()
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error:', error)
-      toast.error(error.message || 'Ocurrió un error al crear el artículo')
+      const errorMessage = error instanceof Error ? error.message : 'Ocurrió un error al crear el artículo'
+      toast.error(errorMessage)
     } finally {
       setIsSubmitting(false)
     }
