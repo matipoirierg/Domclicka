@@ -32,7 +32,7 @@ const reviews = [
 export default function ServiceDetails({ service }: ServiceDetailsProps) {
   const handleWhatsAppContact = () => {
     const message = `Hola, me interesa el servicio ${service.name} de DomClicka.`
-    const whatsappUrl = `https://wa.me/+1234567890?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=59172007428&text&type=phone_number&app_absent=0`
     window.open(whatsappUrl, '_blank')
   }
 
