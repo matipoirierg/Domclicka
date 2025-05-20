@@ -5,6 +5,16 @@ import path from 'path'
 
 const dataFilePath = path.join(process.cwd(), 'data', 'gallery.json')
 
+// Define the GalleryItem interface
+interface GalleryItem {
+  id: string
+  title: string
+  description: string
+  type: 'image' | 'video'
+  src: string
+  date: string
+}
+
 // Ensure the data directory exists
 async function ensureDataDirectory() {
   const dataDir = path.join(process.cwd(), 'data')
@@ -16,19 +26,19 @@ async function ensureDataDirectory() {
 }
 
 // Read gallery items from file
-async function readGalleryItems() {
+async function readGalleryItems(): Promise<GalleryItem[]> {
   try {
     await ensureDataDirectory()
     const fileContent = await fs.readFile(dataFilePath, 'utf-8')
     return JSON.parse(fileContent)
-  } catch (error) {
+  } catch {
     // If file doesn't exist or is invalid, return empty array
     return []
   }
 }
 
 // Write gallery items to file
-async function writeGalleryItems(items: any[]) {
+async function writeGalleryItems(items: GalleryItem[]) {
   await ensureDataDirectory()
   await fs.writeFile(dataFilePath, JSON.stringify(items, null, 2))
 }
@@ -119,7 +129,7 @@ export async function PUT(request: Request) {
     const items = await readGalleryItems()
     
     // Find item index
-    const itemIndex = items.findIndex((item: any) => item.id === id)
+    const itemIndex = items.findIndex((item: GalleryItem) => item.id === id)
     
     if (itemIndex === -1) {
       return NextResponse.json(
@@ -171,7 +181,7 @@ export async function DELETE(request: Request) {
     const items = await readGalleryItems()
     
     // Find item index
-    const itemIndex = items.findIndex((item: any) => item.id === id)
+    const itemIndex = items.findIndex((item: GalleryItem) => item.id === id)
     
     if (itemIndex === -1) {
       return NextResponse.json(

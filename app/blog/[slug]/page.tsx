@@ -6,21 +6,33 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { BlogContent } from '@/app/components/blog/blog-content'
 
+// Define the BlogPost interface
+interface BlogPost {
+  id: string
+  title: string
+  description: string
+  content: string
+  coverImage: string
+  slug: string
+  tags: string[]
+  createdAt: string
+}
+
 // Función para leer los posts del blog
-async function readBlogPosts() {
+async function readBlogPosts(): Promise<BlogPost[]> {
   const dataFilePath = path.join(process.cwd(), 'data', 'blog.json')
   try {
     const fileContent = await fs.readFile(dataFilePath, 'utf-8')
     return JSON.parse(fileContent)
-  } catch (error) {
+  } catch {
     return []
   }
 }
 
 // Función para obtener un post específico por slug
-async function getBlogPost(slug: string) {
+async function getBlogPost(slug: string): Promise<BlogPost | undefined> {
   const posts = await readBlogPosts()
-  return posts.find((post: any) => post.slug === slug)
+  return posts.find((post: BlogPost) => post.slug === slug)
 }
 
 // Generar metadatos dinámicos

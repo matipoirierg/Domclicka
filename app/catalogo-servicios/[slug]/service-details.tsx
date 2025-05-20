@@ -5,7 +5,6 @@ import { Star, MessageCircle, Home, Settings, Package } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { services } from '../page'
 
 interface Service {
   name: string

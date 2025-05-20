@@ -5,6 +5,18 @@ import path from 'path'
 
 const dataFilePath = path.join(process.cwd(), 'data', 'blog.json')
 
+// Define the BlogPost interface
+interface BlogPost {
+  id: string
+  title: string
+  description: string
+  content: string
+  coverImage: string
+  slug: string
+  tags: string[]
+  createdAt: string
+}
+
 // Ensure the data directory exists
 async function ensureDataDirectory() {
   const dataDir = path.join(process.cwd(), 'data')
@@ -16,7 +28,7 @@ async function ensureDataDirectory() {
 }
 
 // Read blog posts from file
-async function readBlogPosts() {
+async function readBlogPosts(): Promise<BlogPost[]> {
   try {
     await ensureDataDirectory()
     const fileContent = await fs.readFile(dataFilePath, 'utf-8')
@@ -28,7 +40,7 @@ async function readBlogPosts() {
 }
 
 // Write blog posts to file
-async function writeBlogPosts(posts: any[]) {
+async function writeBlogPosts(posts: BlogPost[]) {
   await ensureDataDirectory()
   await fs.writeFile(dataFilePath, JSON.stringify(posts, null, 2))
 }
@@ -52,7 +64,7 @@ export async function GET(
     const posts = await readBlogPosts()
     
     // Find the post
-    const post = posts.find((post: any) => post.id === id)
+    const post = posts.find((post: BlogPost) => post.id === id)
     
     if (!post) {
       return NextResponse.json(
@@ -86,7 +98,7 @@ export async function PUT(
     const posts = await readBlogPosts()
     
     // Find post index
-    const postIndex = posts.findIndex((post: any) => post.id === id)
+    const postIndex = posts.findIndex((post: BlogPost) => post.id === id)
     
     if (postIndex === -1) {
       return NextResponse.json(
