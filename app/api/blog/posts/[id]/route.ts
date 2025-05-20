@@ -55,10 +55,10 @@ const UpdateBlogPostSchema = z.object({
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = params.id
+    const { id } = await params
     
     // Read all posts
     const posts = await readBlogPosts()
@@ -85,10 +85,10 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = params.id
+    const { id } = await params
     const body = await request.json()
     
     // Validate request body

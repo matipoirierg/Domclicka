@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServiceDetails from './service-details'
-import { services } from '../page'
+import { services } from '../services'
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>
