@@ -88,9 +88,8 @@ const MenuBar = ({ editor }: MenuBarProps) => {
 }
 
 export default function EditBlogPage({ params }: { params: { id: string } }) {
-  // Desenvolver el objeto params con React.use()
-  const resolvedParams = React.use(params);
-  const postId = resolvedParams.id;
+  // Use the params directly without React.use() since it's a static parameter
+  const postId = params.id;
 
   const router = useRouter()
   const [post, setPost] = useState<BlogPost | null>(null)
