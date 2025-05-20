@@ -14,7 +14,6 @@ interface Product {
   href: string
   description: string
   image: string
-  price?: string
   features?: string[]
 }
 
@@ -33,7 +32,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-clasica',
         description: 'Cerradura inteligente básica con control por app y huella digital.',
         image: '/img/products/cerradura-clasica.jpg',
-        price: '$199.99',
         features: [
           'Control por app',
           'Huella digital',
@@ -46,7 +44,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-clasica-pro',
         description: 'Versión mejorada con reconocimiento facial y alertas de seguridad.',
         image: '/img/products/cerradura-clasica-pro.jpg',
-        price: '$299.99',
         features: [
           'Reconocimiento facial',
           'Alertas de seguridad',
@@ -59,7 +56,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-blindex-corrediza',
         description: 'Cerradura para puertas corredizas con sistema de bloqueo automático.',
         image: '/img/products/cerradura-blindex-corrediza.jpg',
-        price: '$349.99',
         features: [
           'Para puertas corredizas',
           'Bloqueo automático',
@@ -72,7 +68,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-blindex',
         description: 'Sistema de seguridad avanzado con múltiples métodos de acceso.',
         image: '/img/products/cerradura-blindex.jpg',
-        price: '$399.99',
         features: [
           'Múltiples métodos de acceso',
           'Sistema anti-pánico',
@@ -85,7 +80,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-superlight',
         description: 'Diseño ultraligero con máxima seguridad y facilidad de instalación.',
         image: '/img/products/cerradura-superlight.jpg',
-        price: '$249.99',
         features: [
           'Diseño ultraligero',
           'Fácil instalación',
@@ -98,7 +92,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-ejecutiva',
         description: 'Solución premium para oficinas y espacios ejecutivos.',
         image: '/img/products/cerradura-ejecutiva.jpg',
-        price: '$449.99',
         features: [
           'Diseño ejecutivo',
           'Control de acceso avanzado',
@@ -111,7 +104,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-ejecutiva-pro',
         description: 'Versión ejecutiva con control de acceso avanzado y reportes.',
         image: '/img/products/cerradura-ejecutiva-pro.jpg',
-        price: '$499.99',
         features: [
           'Reportes detallados',
           'Control de acceso avanzado',
@@ -124,7 +116,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-super-heavy',
         description: 'Cerradura de alta resistencia para máxima seguridad.',
         image: '/img/products/cerradura-super-heavy.jpg',
-        price: '$399.99',
         features: [
           'Alta resistencia',
           'Sistema anti-forzado',
@@ -137,7 +128,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/cerraduras-super-heavy-lux',
         description: 'Edición de lujo con acabados premium y seguridad reforzada.',
         image: '/img/products/cerradura-super-heavy-lux.jpg',
-        price: '$549.99',
         features: [
           'Acabados premium',
           'Seguridad reforzada',
@@ -156,7 +146,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/camara-interna',
         description: 'Cámara de seguridad interior con visión nocturna y detección de movimiento.',
         image: '/img/products/camara-interna.jpg',
-        price: '$149.99',
         features: [
           'Visión nocturna',
           'Detección de movimiento',
@@ -169,7 +158,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/camara-externa',
         description: 'Cámara exterior resistente a la intemperie con visión panorámica.',
         image: '/img/products/camara-externa.jpg',
-        price: '$199.99',
         features: [
           'Resistente a la intemperie',
           'Visión panorámica',
@@ -188,7 +176,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/interruptor-1c',
         description: 'Interruptor inteligente de un canal con control por app.',
         image: '/img/products/interruptor-1c.jpg',
-        price: '$49.99',
         features: [
           'Control por app',
           'Programación',
@@ -201,7 +188,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/interruptor-2c',
         description: 'Control dual de iluminación con programación avanzada.',
         image: '/img/products/interruptor-2c.jpg',
-        price: '$69.99',
         features: [
           'Control dual',
           'Programación avanzada',
@@ -214,7 +200,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/interruptor-3c',
         description: 'Triple control de iluminación con escenas personalizadas.',
         image: '/img/products/interruptor-3c.jpg',
-        price: '$89.99',
         features: [
           'Triple control',
           'Escenas personalizadas',
@@ -233,7 +218,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/sensor-puerta',
         description: 'Sensor de apertura y cierre con alertas instantáneas.',
         image: '/img/products/sensor-puerta.jpg',
-        price: '$39.99',
         features: [
           'Alertas instantáneas',
           'Batería de larga duración',
@@ -252,7 +236,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/tarjetas-rfid',
         description: 'Sistema de acceso por tarjeta RFID con registro de entradas.',
         image: '/img/products/tarjeta-rfid.jpg',
-        price: '$29.99',
         features: [
           'Registro de entradas',
           'Acceso rápido',
@@ -271,7 +254,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/tomacorrientes-smart',
         description: 'Enchufe inteligente con monitoreo de consumo y programación.',
         image: '/img/products/tomacorrientes-smart.jpg',
-        price: '$59.99',
         features: [
           'Monitoreo de consumo',
           'Programación',
@@ -290,7 +272,6 @@ export const productCategories: ProductCategory[] = [
         href: '/catalogo-productos/luces-neon',
         description: 'Iluminación LED inteligente con control de color y brillo.',
         image: '/img/products/luces-neon.jpg',
-        price: '$79.99',
         features: [
           'Control de color',
           'Control de brillo',
@@ -339,12 +320,11 @@ export default function ProductCatalog() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1 flex flex-col">
-                    {product.price && (
-                      <div className="mb-4">
-                        <span className="text-2xl font-bold text-[#25D366]">{product.price}</span>
-                        <span className="text-sm text-gray-500 ml-2">+ IVA</span>
-                      </div>
-                    )}
+                    <div className="mb-4">
+                      <span className="inline-block px-3 py-1 bg-[#25D366]/10 text-[#25D366] font-medium rounded-full text-sm">
+                        ¡Oferta por tiempo limitado!
+                      </span>
+                    </div>
                     {product.features && (
                       <ul className="space-y-3 mb-6 flex-1">
                         {product.features.map((feature, index) => (

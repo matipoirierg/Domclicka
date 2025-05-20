@@ -11,7 +11,6 @@ interface Product {
   href: string
   description: string
   image: string
-  price?: string
   features?: string[]
 }
 
@@ -52,7 +51,7 @@ export default function ProductDetails({ product, category }: ProductDetailsProp
   }
 
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className="container mx-auto px-4 py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Column - Product Info */}
         <div className="space-y-8">
@@ -187,12 +186,13 @@ export default function ProductDetails({ product, category }: ProductDetailsProp
             </div>
           </div>
 
-          {product.price && (
-            <div className="flex items-baseline justify-center gap-2 bg-gray-50 p-4 rounded-lg">
-              <span className="text-4xl font-bold text-[#25D366]">{product.price}</span>
-              <span className="text-gray-500">+ IVA</span>
-            </div>
-          )}
+          <div className="bg-gray-50 p-6 rounded-lg text-center">
+            <Badge className="bg-[#25D366] text-white mb-3 px-4 py-1 text-sm">¡Oferta Especial!</Badge>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Precio por tiempo limitado</h3>
+            <p className="text-gray-600">
+              Contacta por WhatsApp para conocer nuestras promociones exclusivas
+            </p>
+          </div>
 
           <Button
             onClick={handleWhatsAppContact}
